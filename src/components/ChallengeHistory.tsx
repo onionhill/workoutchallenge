@@ -1,5 +1,6 @@
-import { Challenge } from "../App";
+import { Challenge } from "../types";
 import { formatDate } from "../utils";
+import { HiTrophy } from "react-icons/hi2";
 
 type Props = { challenges: Challenge[] };
 
@@ -24,7 +25,10 @@ const ChallengeHistory = ({ challenges }: Props) => {
             
             return (
                 <tr key={i} className="hover:bg-gray-700 border-b border-gray-600">
-                <td className="py-2">{c.type}</td>
+                <td className="py-2 flex items-center">
+                  {c.completed && <HiTrophy className="text-yellow-400 mr-2" />}
+                  {c.type}
+                </td>
                 <td className="py-2">{c.reps}</td>
                 <td className="py-2 font-mono text-teal-400">
                     {`${hours > 0 ? `${hours}:` : ""}${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`}

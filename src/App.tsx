@@ -4,15 +4,8 @@ import ActiveChallenge from "./components/ActiveChallenge";
 import ChallengeHistory from "./components/ChallengeHistory";
 import CONFIG from "../config";
 import image from "./logo.jpeg";
+import { Challenge } from "./types";
 
-export type Challenge = {
-  type: string;
-  reps: number;
-  elapsedTime?: number; 
-  sets: number[],
-  finishTime?: string;
-  completed?: boolean;
-}
 
 
 function App() {
@@ -32,7 +25,6 @@ function App() {
   const completeChallenge = (completed: Challenge) => {
     setChallenges([...challenges, completed]);
     setActiveChallenge(null);
-    console.log('running the file save??');
     fetch(`${CONFIG.API_URL}/challenges`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

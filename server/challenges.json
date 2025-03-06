@@ -3,26 +3,85 @@
     "type": "Pushups",
     "reps": 500,
     "sets": [
-      40,
-      30,
-      30,
-      45,
-      30,
-      30,
-      30,
-      30,
-      20,
-      40,
-      30,
-      30,
-      25,
-      30,
-      25,
-      20,
-      15
+      {
+        "reps": 40,
+        "restTime": 0
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 45,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 20,
+        "restTime": 450
+      },
+      {
+        "reps": 40,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 25,
+        "restTime": 450
+      },
+      {
+        "reps": 30,
+        "restTime": 450
+      },
+      {
+        "reps": 25,
+        "restTime": 450
+      },
+      {
+        "reps": 20,
+        "restTime": 450
+      },
+      {
+        "reps": 15,
+        "restTime": 450
+      }
     ],
     "elapsedTime": 7510,
     "finishTime": "2025-03-06 13:00:00",
     "completed": true
+  },
+  {
+    "type": "Pushups",
+    "reps": 0,
+    "sets": [],
+    "elapsedTime": 1,
+    "finishTime": "2025-03-06 19:29:18",
+    "completed": false
   }
 ]
