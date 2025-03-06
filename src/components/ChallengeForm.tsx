@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Challenge } from "../App";
+import { Challenge } from "../types";
 
 const exercises = ["Pushups", "Squats", "Plank"];
 
@@ -8,6 +8,7 @@ type Props = { onStart: (challenge: Challenge) => void };
 const ChallengeForm = ({ onStart }: Props) => {
   const [type, setType] = useState("Pushups");
   const [reps, setReps] = useState(10);
+  console.log('ChallengeForm')
 
   return (
     <div className="p-4 bg-gray-800 rounded-lg">

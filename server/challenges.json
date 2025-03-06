@@ -80,8 +80,24 @@
     "type": "Pushups",
     "reps": 0,
     "sets": [],
-    "elapsedTime": 1,
-    "finishTime": "2025-03-06 19:29:18",
+    "elapsedTime": 0,
+    "finishTime": "2025-03-06 21:29:45",
+    "completed": false
+  },
+  {
+    "type": "Pushups",
+    "reps": 0,
+    "sets": [],
+    "elapsedTime": 0,
+    "finishTime": "2025-03-06 21:33:03",
+    "completed": false
+  },
+  {
+    "type": "Pushups",
+    "reps": 0,
+    "sets": [],
+    "elapsedTime": 3,
+    "finishTime": "2025-03-06 21:33:40",
     "completed": false
   }
 ]

@@ -10,17 +10,29 @@ app.use(express.json());
 const DATA_FILE = "./server/challenges.json";
 
 // Read existing challenges
-app.get("/api/challenges", (req, res) => {
-  const data = fs.existsSync(DATA_FILE) ? fs.readFileSync(DATA_FILE, "utf8") : "[]";
-  res.json(JSON.parse(data));
+app.get("/api/getchallenges", (req, res) => {
+  try {
+    const data = fs.existsSync(DATA_FILE) ? fs.readFileSync(DATA_FILE, "utf8") : "[]";
+    console.log('getting data???');
+    res.json(JSON.parse(data));
+  } catch (error) {
+    console.error('Error getting challenge:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
 });
 
 // Add a new challenge
 app.post("/api/challenges", (req, res) => {
-  const data = fs.existsSync(DATA_FILE) ? JSON.parse(fs.readFileSync(DATA_FILE, "utf8")) : [];
-  data.push(req.body);
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
-  res.json({ success: true });
+  try {
+    const data = fs.existsSync(DATA_FILE) ? JSON.parse(fs.readFileSync(DATA_FILE, "utf8")) : [];
+    data.push(req.body);
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
+    console.log('Challenge saved successfully');
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Error saving challenge:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
 });
 
 // Clear challenges (For canceling active challenge)

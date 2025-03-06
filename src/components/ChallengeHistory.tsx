@@ -1,10 +1,18 @@
 import { Challenge } from "../types";
 import { formatDate } from "../utils";
 import { HiTrophy } from "react-icons/hi2";
+import { useEffect, useState } from "react";
+import CONFIG from "../../config";
 
-type Props = { challenges: Challenge[] };
+const ChallengeHistory = () => {
+  const [challenges, setChallenges] = useState<Challenge[]>([]);
 
-const ChallengeHistory = ({ challenges }: Props) => {
+  useEffect(() => {
+    fetch(`${CONFIG.API_URL}/getchallenges`)
+      .then((res) => res.json())
+      .then(setChallenges);
+  }, []);
+
   return (
     <div className="p-6 bg-gray-800 rounded-xl mt-6 shadow-lg">
       <h2 className="text-2xl font-semibold text-white">Completed Challenges</h2>

@@ -1,36 +1,9 @@
-import { useEffect, useState } from "react";
-import ChallengeForm from "./components/ChallengeForm";
-import ActiveChallenge from "./components/ActiveChallenge";
-import ChallengeHistory from "./components/ChallengeHistory";
-import CONFIG from "../config";
+
+import ChallengeWrapper from "./components/ChallengeWrapper";
 import image from "./logo.jpeg";
-import { Challenge } from "./types";
-
-
 
 function App() {
-  const [challenges, setChallenges] = useState<Challenge[]>([]);
-  const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null);
 
-  useEffect(() => {
-    fetch(`${CONFIG.API_URL}/challenges`)
-      .then((res) => res.json())
-      .then(setChallenges);
-  }, []);
-
-  const startChallenge = (challenge: Challenge) => {
-    setActiveChallenge(challenge);
-  };
-
-  const completeChallenge = (completed: Challenge) => {
-    setChallenges([...challenges, completed]);
-    setActiveChallenge(null);
-    fetch(`${CONFIG.API_URL}/challenges`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(completed),
-    });
-  };
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 flex items-center justify-center">
       <div className="w-full max-w-3xl">
@@ -43,15 +16,37 @@ function App() {
           />
           <h1 className="text-3xl">Workout Challenge</h1>
         </div>
-        {!activeChallenge ? (
-          <ChallengeForm onStart={startChallenge} />
-        ) : (
-          <ActiveChallenge challenge={activeChallenge} onComplete={completeChallenge} />
-        )}
-        {challenges.length > 0 && !activeChallenge && <ChallengeHistory challenges={challenges} />}
+       
+        <ChallengeWrapper  /> 
+        
       </div>
     </div>
   );
 }
 
 export default App;
+
+
+/*
+
+  const handleCancelChallenge = () => {
+    const completionPercentage = (totalReps / challenge.reps) * 100;
+    let message = "";
+
+    if (completionPercentage < 20) {
+      message = "That was a tough one. Better luck next time!";
+    } else if (completionPercentage < 50) {
+      message = "Nice try! Keep pushing!";
+    } else if (completionPercentage < 80) {
+      message = "Almost there! You got this!";
+    } else {
+      message = "So close! Next time you'll crush it!";
+    }
+
+    setIsChallengeCancelled(true);
+    setCancelMessage(message);
+
+    onCancel(message); // Pass message back to App component
+  };
+
+  */
